@@ -1,5 +1,4 @@
 require('dotenv').config();
-require('./mongoose-config')
 
 const { ApolloServer } = require('apollo-server-express')
 // const dataSources = require('./data-sources')
@@ -20,10 +19,10 @@ const apolloServer = new ApolloServer({
       // ...
     },
   },
-  context: async ({ req, connection}) => ({
+  context: async ({ req, connection }) => ({
     currentUser: { //TODO: find an authentication system 
-      name:"Hello",
-      description:"World"
+      name: "Hello",
+      description: "World"
     },
   }),
   // dataSources: () => (dataSources),
@@ -33,11 +32,11 @@ const http = require('http');
 const express = require('express');
 
 const app = express();
-apolloServer.applyMiddleware({app})
+apolloServer.applyMiddleware({ app })
 const httpServer = http.createServer(app);
 apolloServer.installSubscriptionHandlers(httpServer);
 
-httpServer.listen({port: port}, () => {
+httpServer.listen({ port: port }, () => {
   console.log(`🚀 Server ready at http://localhost:${port}${apolloServer.graphqlPath}`)
   console.log(`🚀 Subscriptions ready at ws://localhost:${port}${apolloServer.subscriptionsPath}`)
 })

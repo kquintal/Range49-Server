@@ -1,4 +1,4 @@
-module.exports = { 
+module.exports = {
   unauthorized() {
     return {
       code: "401",
@@ -6,28 +6,28 @@ module.exports = {
       message: "Unauthorized",
     }
   },
-  internalError(message){
+  internalError(message) {
     return {
       code: "500",
       success: false,
       message: message
     }
   },
-  notImplemented(message){
+  notImplemented(message) {
     return {
       code: "501",
       success: false,
       message: `Not yet implemented:${message}`
     }
   },
-  notFound(type){
+  notFound(type) {
     return {
       code: "404",
       success: false,
       message: `${type} not found.`
     }
   },
-  ok(type, operation, valueName, value){
+  ok(type, operation, valueName, value) {
     const message = {
       code: "200",
       success: true,
@@ -36,14 +36,14 @@ module.exports = {
     message[valueName] = value
     return message
   },
-  alreadyExists(type, value){
+  alreadyExists(type, value) {
     return {
       code: "422",
       success: false,
       message: `${type} '${value}' already exists.`,
     }
   },
-  operationNotAllowed(message){
+  operationNotAllowed(message) {
     return {
       code: "405",
       success: false,

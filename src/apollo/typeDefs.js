@@ -9,16 +9,16 @@ const typeDefs = gql`
     self: String
   }
 
-  type Subscription{
-      #project(id:ID): Project
-      #labourPlanGroup(id:ID): LabourPlanGroup
-      #activity(id:ID!): Activity
-  }
+  # type Subscription{
+  #     #project(id:ID): Project
+  #     #labourPlanGroup(id:ID): LabourPlanGroup
+  #     #activity(id:ID!): Activity
+  # }
 
   type Mutation {
     
     #TODO
-    hellowWorld(name: String!): DefaultMutationResponse
+    helloWorld(name: String!): DefaultMutationResponse
     
   }
   #########################################
