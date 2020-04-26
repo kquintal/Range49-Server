@@ -1,7 +1,7 @@
 require('dotenv').config();
 
 const { ApolloServer } = require('apollo-server-express')
-// const dataSources = require('./data-sources')
+const dataSources = require('./data-sources')
 const { typeDefs, resolvers } = require('./apollo')
 
 const port = process.env.PORT || 3001
